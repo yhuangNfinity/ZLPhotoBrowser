@@ -321,9 +321,7 @@ public class ZLPhotoPreviewSheet: UIView {
         } else if status == .notDetermined {
             PHPhotoLibrary.requestAuthorization { status in
                 ZLMainAsync {
-                    if status == .denied {
-                        self.showNoAuthorityAlert()
-                    } else if status == .authorized {
+                    if status == .authorized {
                         if self.preview {
                             self.loadPhotos()
                             self.show()
